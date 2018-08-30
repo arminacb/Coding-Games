@@ -1,15 +1,21 @@
 package trailCatCoder;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 interface actions {
 	int getPerimeter(String input);
 	int getSurface(String input);
 	double getTotalSurface(String input);
-	int getPockets();
+	int getPockets(String input);
 }
 
 public class jim extends trailUtils implements actions{
+	
+
 
 	public int getPerimeter(String input) {
 		int total = 0;
@@ -68,9 +74,32 @@ public class jim extends trailUtils implements actions{
 	}
 
 	@Override
-	public int getPockets() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getPockets(String input) {
+		String[] s = getFullInput(input);
+		int[][] A = getCoordonates(input);
+		int[] X = coordonatesOf(A, 'X');
+		int[] Y = coordonatesOf(A, 'Y');
+		
+		int total = 0;
+		
+		int n = X.length;
+		
+		for(int i = 0; i < n; i++) {
+			int a = A[i][0];
+			Set<Integer> yCoords = new HashSet<Integer>();
+			
+			for(int j = 0; j < n; j++) {
+				if(i!=j) {
+					if(A[j][0] == a) {
+						yCoords.add(A[j][1]);
+					}
+				}
+			}
+			if(yCoords.size() > 2)
+				total = total + yCoords.size() - 2;
+		}
+		
+		return total;
 	}
 
 }

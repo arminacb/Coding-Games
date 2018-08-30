@@ -14,6 +14,8 @@ public class play {
 		System.out.println(s1);
 		double s2 = j.getTotalSurface(input);
 		System.out.println(s2);
+		int s3 = j.getPockets(input);
+		System.out.println(s3);
 		
 //==========================MAIN MENU===================================
 		
