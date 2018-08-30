@@ -12,7 +12,8 @@ public class play {
 		System.out.println(p);
 		int s1 = j.getSurface(input);
 		System.out.println(s1);
-		
+		double s2 = j.getTotalSurface(input);
+		System.out.println(s2);
 		
 //==========================MAIN MENU===================================
 		

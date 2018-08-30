@@ -127,7 +127,7 @@ public class trailUtils {
 		}
 		if(c == 'Y') {
 			for(int i = 0; i < A.length; i++) {
-				y[i] = A[i][0];
+				y[i] = A[i][1];
 			}
 			return y;
 		}
@@ -162,16 +162,10 @@ public class trailUtils {
 			totalRightTurns = totalRightTurns + R;
 			totalLeftTurns = totalLeftTurns + L;
 			
-			totalRightTurns = (totalRightTurns % 4) * 10;
+			totalRightTurns = totalRightTurns % 4;
 			totalLeftTurns = totalLeftTurns % 4;
-			
-			
-			
-
-			
-	
-			
-			d = totalRightTurns + totalLeftTurns;
+		
+			d = totalRightTurns * 10 + totalLeftTurns;
 			
 			if(d == 03 || d == 10 || d == 21 || d == 32)
 				x = x + F;

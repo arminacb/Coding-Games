@@ -1,10 +1,11 @@
 package trailCatCoder;
 
+import java.util.Arrays;
 
 interface actions {
 	int getPerimeter(String input);
 	int getSurface(String input);
-	void getTotalSurface();
+	double getTotalSurface(String input);
 	int getPockets();
 }
 
@@ -31,11 +32,13 @@ public class jim extends trailUtils implements actions{
 		int[] xCoordonates = coordonatesOf(xyCoordonates, 'X');
 		int[] yCoordonates = coordonatesOf(xyCoordonates, 'Y');
 		
-		int maxX = getMax(xCoordonates);
-		int maxY = getMax(yCoordonates);
+		int maxX, minX, maxY, minY;
 		
-		int minX = getMin(xCoordonates);
-		int minY = getMin(yCoordonates);
+		maxX = Arrays.stream(xCoordonates).max().getAsInt();
+		minX = Arrays.stream(xCoordonates).min().getAsInt();
+		
+		maxY = Arrays.stream(yCoordonates).max().getAsInt();
+		minY = Arrays.stream(yCoordonates).min().getAsInt();
 		
 		totalSurface = (Math.abs(maxX) + Math.abs(minX))*(Math.abs(maxY) + Math.abs(minY));
 		return totalSurface;
@@ -43,8 +46,24 @@ public class jim extends trailUtils implements actions{
 	}
 
 	@Override
-	public void getTotalSurface() {
-		// TODO Auto-generated method stub
+	public double getTotalSurface(String input) {
+		int[][] xyCoordonates = getCoordonates(input);
+		int[] X = coordonatesOf(xyCoordonates, 'X');
+		int[] Y = coordonatesOf(xyCoordonates, 'Y');
+		
+	    double area = 0.0;
+	    int n = X.length;
+	    
+	    // Calculate value of shoelace formula
+	    int j = n - 1;
+	    for (int i = 0; i < n; i++)
+	    {
+	        area += (X[j] + X[i]) * (Y[j] - Y[i]);
+	        j = i;  // j is previous vertex to i
+	    }
+	 
+	    // Return absolute value
+	    return Math.abs(area / 2.0);
 		
 	}
 
