@@ -8,12 +8,12 @@ public class play {
 		int option;
 		jim j = new jim();
 		String input = s.nextLine();
-		int p = j.getPerimeter(input);
+/*		int p = j.getPerimeter(input);
 		System.out.println(p);
 		int s1 = j.getSurface(input);
 		System.out.println(s1);
 		double s2 = j.getTotalSurface(input);
-		System.out.println(s2);
+		System.out.println(s2);*/
 		int s3 = j.getPockets(input);
 		System.out.println(s3);
 		

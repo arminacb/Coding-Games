@@ -86,6 +86,7 @@ public class jim extends trailUtils implements actions{
 		
 		for(int i = 0; i < n; i++) {
 			int a = A[i][0];
+			Set<Integer> xCoords = new HashSet<Integer>();
 			Set<Integer> yCoords = new HashSet<Integer>();
 			
 			for(int j = 0; j < n; j++) {

@@ -187,32 +187,5 @@ public class trailUtils {
 		return A;
 
 	}
-	private int isConvex2(int[] x, int[] y, int base, int n) {
-
-		int total = 0;
-		int n = x.length;
-		boolean sign = false;
-
-		if (x[base] == x[n-1] && y[base] == y[n-1]) // if its a closed polygon, ignore last vertex
-		     n--;
-		
-		for(int p=0; p < n; p++)
-		{
-			int i = base++;
-			int i1 = i+1; if (i1 >= n) i1 = base + i1-n;
-			int i2 = i+2; if (i2 >= n) i2 = base + i2-n;
-
-			int dx1 = x[i1] - x[i];
-			int dy1 = y[i1] - y[i];
-			int dx2 = x[i2] - x[i1];
-			int dy2 = y[i2] - y[i1];
-			int crossproduct = dx1*dy2 - dy1*dx2;
-			if (i == base)
-				sign = crossproduct > 0;
-		     else
-		    	 if (sign != (crossproduct > 0))
-		    		 total++;
-		  }
-		  return total;
-	}
+	
 }
