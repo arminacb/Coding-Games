@@ -89,17 +89,18 @@ public class jim extends trailUtils implements actions{
 			Set<Integer> xCoords = new HashSet<Integer>();
 			Set<Integer> yCoords = new HashSet<Integer>();
 			
-			for(int j = 0; j < n; j++) {
-				if(i!=j) {
-					if(A[j][0] == a) {
-						yCoords.add(A[j][1]);
-					}
+			for(int number : X)
+				xCoords.add(number);
+			for(int number : Y)
+				yCoords.add(number);
+			
+			for(int element : xCoords) {
+				int currentElement = element;
+				for(int elements : yCoords) {
 				}
 			}
-			if(yCoords.size() > 2)
-				total = total + yCoords.size() - 2;
-		}
-		
+			}
+			
 		return total;
 	}
 
